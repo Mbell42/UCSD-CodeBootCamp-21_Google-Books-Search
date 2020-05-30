@@ -10,6 +10,18 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 
+// Database connection / configuration
+const db = "mongodb+srv://StarMoose42:MooseLinker24@cluster0-3pwbk.mongodb.net/test?retryWrites=true&w=majority" ;
+mongoose.connect(
+    db, {
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useUnifiedTopology: true
+  })
+  .then(() => console.log("Connected to MongoDB Successfully!"))
+  .catch(err => console.log(err));
+
+
 // Middleware
 app.use(
     express.urlencoded({
@@ -21,19 +33,11 @@ app.use(
 );
 
 
-// Database connection
-mongoose.connect(
-    "mongodb://localhost/test", {
-        useNewUrlParser: true,
-        useCreateIndex: true,
-        useUnifiedTopology: true
-  })
-  .then(() => console.log("Connected to MongoDB Successfully!"))
-  .catch(err => console.log(err));
-
-
 // Routes - front-end / API 
-// app.use();
+app.use(routes);
 
 // Start the back-end server
+app.listen(PORT, () => {
+    console.log(`Server is now listening on PORT ${PORT}!`);
+});
 
