@@ -1,8 +1,8 @@
 // Dependencies
-
 const express = require("express");
-// const routes = require("routes");
 const mongoose = require("mongoose");
+
+const routes = require("./routes");
 
 
 // Setup Express
@@ -33,7 +33,7 @@ app.use(
 
 
 // Routes - front-end / API 
-// app.use(routes);
+app.use(routes);
 
 // Start the back-end server
 app.listen(PORT, () => {
