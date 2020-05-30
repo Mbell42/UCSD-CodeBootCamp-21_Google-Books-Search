@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3001;
 
 
 // Database connection / configuration
-const db = "mongodb+srv://StarMoose42:MooseLinker24@cluster0-3pwbk.mongodb.net/test?retryWrites=true&w=majority" ;
+const db = "" ;
 mongoose.connect(
     db, {
         useNewUrlParser: true,
