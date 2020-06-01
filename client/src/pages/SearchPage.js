@@ -12,11 +12,19 @@ class SearchPage extends Component {
     componentDidMount() {
         // API needed
     };
-
+    // Reload the version of the page cached by the browser
     refreshPage() {
-        // Reload the version of the page cached by the browser
         window.location.reload();
     };
+
+
+    // Handler functions
+    // handleFormSubmit = (e) => {
+    //     e.preventDefault();
+    //     console.log('Button Clicked', this.state.search, e);
+    //     this.searchBooks(this.state.search);
+    //   };
+
 
     // Page Composition
     render() {
@@ -30,9 +38,24 @@ class SearchPage extends Component {
 
                 <Row>
                     <Col size = "md-12">
-                        <ForegroundCard>
-
-                        </ForegroundCard>
+                    {this.state.books.map((item) => (
+                        <ForegroundCard
+                            title={item.title}
+                            authors={item.authors}
+                            description={item.description}
+                            image={item.image}
+                            link={item.link}
+                            key={item.key}
+                            button={() => (
+                                <button
+                                    onClick={() => this.handleBookSave(item.id)}
+                                    className="btn btn-dark"
+                                >
+                                    Save
+                                </button> 
+                            )}
+                        />
+                    ))}
                     </Col>
                 </Row>
           </Container>
