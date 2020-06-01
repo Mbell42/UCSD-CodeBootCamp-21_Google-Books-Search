@@ -1,7 +1,8 @@
 // Dependencies
 import React, { Component } from 'react';
-import Container from '../Components/Container';
-import Col from '../Components/Col';
+import Container from '../Components/Grid/Container';
+import Col from '../Components/Grid/Col';
+import Row from '../Components/Grid/Row';
 
 class SearchPage extends Component {
     state = { books: [], search: '' };
@@ -20,7 +21,10 @@ class SearchPage extends Component {
     render() {
         return (
           <Container>
-              <Col>
+              <Col size = "md-12">
+                  <Row>
+
+                  </Row>
               </Col>
           </Container>
         );

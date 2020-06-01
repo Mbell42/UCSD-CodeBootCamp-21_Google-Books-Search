@@ -3,7 +3,7 @@ import React from "react";
 
 // Container Component
 function Container(props) {
-    return <div className = "container">{props.children}</div>;
+    return <div className = "container fluid">{props.children}</div>;
 };
 
 // Exports
