@@ -7,12 +7,12 @@ function ForegroundCard(props) {
     return (
         <div>
             <div className  = "card mb-4" key = {props.id}>
-                <h2 className = "card-title">
+                <h3 className = "card-title">
                     {props.title}
-                </h2>
-                <h3 className = "card-subtitle">
-                    by {props.authors}
                 </h3>
+                <h4 className = "card-subtitle">
+                    by {props.authors}
+                </h4>
                 <div className = "card-text">
                     {props.description}
                 </div>

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Container from '../Components/Grid/Container';
 import Col from '../Components/Grid/Col';
 import Row from '../Components/Grid/Row';
+import ForegroundCard from '../components/Cards/ForegroundCard';
 
 class SearchPage extends Component {
     state = { books: [], search: '' };
@@ -21,11 +22,19 @@ class SearchPage extends Component {
     render() {
         return (
           <Container>
-              <Col size = "md-12">
-                  <Row>
+                <Row>
+                    <Col size = "md-6">
+                        <h2>Book Search</h2>
+                    </Col>
+                </Row>
 
-                  </Row>
-              </Col>
+                <Row>
+                    <Col size = "md-12">
+                        <ForegroundCard>
+
+                        </ForegroundCard>
+                    </Col>
+                </Row>
           </Container>
         );
     };
