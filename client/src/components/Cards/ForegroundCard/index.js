@@ -7,6 +7,15 @@ function ForegroundCard(props) {
     return (
         <div>
             <div className  = "card mb-4" key = {props.id}>
+                <div>
+                    <Col size = "md-3">
+                        <img
+                            alt={props.title}
+                            className="card-img-top"
+                            src={props.image}
+                        />
+                    </Col>
+                </div>
                 <h3 className = "card-title">
                     {props.title}
                 </h3>
@@ -15,15 +24,6 @@ function ForegroundCard(props) {
                 </h4>
                 <div className = "card-text">
                     {props.description}
-                </div>
-                <div>
-                    <Col size = "md-3">
-                        <img
-                            alt={props.title}
-                            className="img-fluid"
-                            src={props.image}
-                        />
-                    </Col>
                 </div>
                 <div>
                     <a href = {props.link} className = "btn btn-primary">
