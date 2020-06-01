@@ -19,7 +19,7 @@ class App extends Component {
             <NavBar />
             <Switch>
               <Route exact path = "/" component= {SearchPage} />
-              <Route exact path = "/saved" component= {SavePage} />
+              <Route path = "/saved" component= {SavePage} />
             </Switch>
           </Col>
         </Router>
