@@ -1,9 +1,12 @@
 // Dependencies
-import React, { Component } from 'react';
-import Container from '../Components/Grid/Container';
-import Col from '../Components/Grid/Col';
-import Row from '../Components/Grid/Row';
-import ForegroundCard from '../components/Cards/ForegroundCard';
+import React, { Component } from "react";
+
+import Container from "../components/Grid/Container";
+import Col from "../components/Grid/Col";
+import Row from "../components/Grid/Row";
+import ForegroundCard from "../components/Cards/ForegroundCard";
+
+import API from "../utils/API";
 
 class SearchPage extends Component {
     state = { books: [], search: '' };
@@ -19,11 +22,63 @@ class SearchPage extends Component {
 
 
     // Handler functions
-    // handleFormSubmit = (e) => {
-    //     e.preventDefault();
-    //     console.log('Button Clicked', this.state.search, e);
-    //     this.searchBooks(this.state.search);
-    //   };
+    InputChangeHandler = (e) => {
+        this.setState({
+          [e.target.name]: e.target.value,
+        });
+        console.log("New Input: ", this.state.search);
+      };
+
+    getBooksHandler = () => {
+        API.getBooks(this.state.search)
+          .then((res) =>
+            this.setState({
+              books: res.data,
+            })
+          )
+          .catch(() =>
+            this.setState({
+              books: [],
+              message: "Not found",
+            })
+          );
+    };
+
+    searchBooksHandler = (query) => {
+        API.search(query)
+          .then((res) => {
+            console.log(res);
+            this.setState({
+                books: res.data.items.map((e, i) => ({
+                    title: e.volumeInfo.title,
+                    authors: e.volumeInfo.authors,
+                    description: e.volumeInfo.description,
+                    image: e.volumeInfo.imageLinks.thumbnail,
+                    link: e.volumeInfo.previewLink,
+                    key: e.id,
+              })),
+            });
+          })
+          .catch((err) => console.log(err));
+    };
+    
+    BookSaveHandler = (id) => {
+        const book = this.state.books.find((book) => book.id === id);
+        API.saveBook({
+          title: book.volumeInfo.title,
+          authors: book.volumeInfo.authors,
+          description: book.volumeInfo.description,
+          image: book.volumeInfo.imageLinks.thumbnail,
+          link: book.volumeInfo.infoLink,
+          key: book.id,
+        }).then(() => this.getBooks());
+    };
+
+    formSubmitHandler = (e) => {
+        e.preventDefault();
+        console.log("Button Clicked: ", this.state.search, e);
+        this.searchBooksHandler(this.state.search);
+    };
 
 
     // Page Composition
@@ -48,7 +103,7 @@ class SearchPage extends Component {
                             key={item.key}
                             button={() => (
                                 <button
-                                    onClick={() => this.handleBookSave(item.id)}
+                                    onClick={() => this.bookSaveHandler(item.id)}
                                     className="btn btn-dark"
                                 >
                                     Save

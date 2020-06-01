@@ -1,13 +1,13 @@
 // Dependencies
-import React from "react"
-import { Link } from "react-router-dom;"
+import React from "react";
+import { Link } from "react-router-dom";
 
 
 // NavBar Component
 function NavBar() {
     return (
         <nav className = "navbar-expand-lg navbar-light bg-dark">
-            <link className="navbar-brand" to = "/">Google Book Search</link>
+            <Link className="navbar-brand" to = "/">Google Book Search</Link>
             <div>
                 <ul className="navbar-nav">
                     <li className="nav-item">
