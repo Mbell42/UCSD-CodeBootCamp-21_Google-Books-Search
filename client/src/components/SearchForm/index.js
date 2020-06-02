@@ -8,13 +8,22 @@ function SearchForm(props) {
             <div>
                 {/* Label will update with search */}
                 <label htmlFor = "Search"></label>
-                <input />
+                <input
+                    onChange={props.inputChangeHandler}
+                    name="search"
+                    type="text"
+                    id="search"
+                    className="form-control"
+                    placeholder="Search for a Book..."
+                />
                 {/* Search Button */}
-                <button>
+                <button onClick = {props.FormSubmissionHandler} className = "btn btn-primary">
                     Search
                 </button>
                 {/* Reset Button - Clears search */}
-                <button>Reset</button>
+                <button onClick = {props.refreshPage} className = "btn btn-danger">
+                    Reset
+                </button>
             </div>
         </form>
     );

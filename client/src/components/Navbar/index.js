@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 // NavBar Component
 function NavBar() {
     return (
-        <nav className = "navbar-expand-lg navbar-light bg-dark">
+        <nav className = "navbar-expand-lg navbar-light bg-light">
             <Link className="navbar-brand" to = "/">Google Book Search</Link>
             <div>
                 <ul className="navbar-nav">

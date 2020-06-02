@@ -17,9 +17,11 @@ class App extends Component {
       <Container>
         <Router>
           <Col size = "md-12">
+            {/* Navbar will appear at top of each page */}
             <NavBar />
             <Switch>
               <Route exact path = "/" component= {SearchPage} />
+              <Route path = "/search" component= {SearchPage} />
               {/* <Route path = "/saved" component= {SavedPage} /> */}
             </Switch>
           </Col>

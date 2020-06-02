@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import Container from "../components/Grid/Container";
 import Col from "../components/Grid/Col";
 import Row from "../components/Grid/Row";
+import SearchForm from "../components/SearchForm";
 import ForegroundCard from "../components/Cards/ForegroundCard";
 
 import API from "../utils/API";
@@ -24,8 +25,8 @@ class SearchPage extends Component {
     };
 
 
-    // Handler functions
-    InputChangeHandler = (e) => {
+    // Handler Functions
+    inputChangeHandler = (e) => {
         this.setState({
           [e.target.name]: e.target.value,
         });
@@ -77,7 +78,7 @@ class SearchPage extends Component {
         }).then(() => this.getBooks());
     };
 
-    formSubmitHandler = (e) => {
+    formSubmissionHandler = (e) => {
         e.preventDefault();
         console.log("Button Clicked: ", this.state.search, e);
         this.searchBooksHandler(this.state.search);
@@ -88,12 +89,19 @@ class SearchPage extends Component {
     render() {
         return (
           <Container>
+              {/* Book Search Form will appear here */}
                 <Row>
                     <Col size = "md-6">
                         <h2>Book Search</h2>
+                        <SearchForm
+                            value = {this.state.search}
+                            inputChangeHandler = {this.handleInputChange}
+                            formSubmissionHandler = {this.handleFormSubmit}
+                        />
                     </Col>
                 </Row>
 
+                {/* Cards will appear here */}
                 <Row>
                     <Col size = "md-12">
                     {this.state.books.map((item) => (
