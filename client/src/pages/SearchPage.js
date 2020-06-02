@@ -13,7 +13,10 @@ class SearchPage extends Component {
     
     // Initial State
     componentDidMount() {
-        // API needed
+        const API_URL = "https://www.googleapis.com/books/v1/volumes?q=";
+        this.searchBooksHandler(
+            API_URL + "lord+of+the+rings"
+          );
     };
     // Reload the version of the page cached by the browser
     refreshPage() {
@@ -39,7 +42,7 @@ class SearchPage extends Component {
           .catch(() =>
             this.setState({
               books: [],
-              message: "Not found",
+              message: "Book Not found",
             })
           );
     };
@@ -62,7 +65,7 @@ class SearchPage extends Component {
           .catch((err) => console.log(err));
     };
     
-    BookSaveHandler = (id) => {
+    saveBookHandler = (id) => {
         const book = this.state.books.find((book) => book.id === id);
         API.saveBook({
           title: book.volumeInfo.title,
@@ -103,7 +106,7 @@ class SearchPage extends Component {
                             key={item.key}
                             button={() => (
                                 <button
-                                    onClick={() => this.bookSaveHandler(item.id)}
+                                    onClick={() => this.saveBookHandler(item.id)}
                                     className="btn btn-dark"
                                 >
                                     Save

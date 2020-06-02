@@ -1,12 +1,12 @@
 // Dependencies
 import React from "react";
-import Col from "../../Grid/Col"
+import Col from "../../Grid/Col";
 
 // Foreground Card Component
 function ForegroundCard(props) {
     return (
         <div>
-            <div className  = "card mb-4" key = {props.id}>
+            <div className  = "card bg-dark mb-4" key = {props.id}>
                 <div>
                     <Col size = "md-3">
                         <img

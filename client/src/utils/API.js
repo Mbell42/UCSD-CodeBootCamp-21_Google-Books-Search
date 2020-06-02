@@ -15,7 +15,7 @@ export default {
     },
     // Read
     getBook: function(id) {
-        return axios.get('api/books/' + id);
+        return axios.get("api/books/" + id);
     },
     // Save
     saveBook: function (bookInfo) {
@@ -23,6 +23,6 @@ export default {
     },
     // Delete
     deleteBook: function (id) {
-        return axios.delete('/api/books' + id);
+        return axios.delete("/api/books" + id);
     }
 };
