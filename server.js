@@ -11,8 +11,10 @@ const PORT = process.env.PORT || 4242;
 
 
 // Database connection / configuration
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/google-books-search";
+
 mongoose.connect(
-    process.env.MONGODB_URI || 'mongodb://localhost/googlebooks', {
+    MONGODB_URI, {
         useNewUrlParser: true,
         useCreateIndex: true,
         useUnifiedTopology: true
