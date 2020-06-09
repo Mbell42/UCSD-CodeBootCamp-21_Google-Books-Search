@@ -11,4 +11,4 @@ function ListEntry({ children }) {
     return <li className = "list-group-item">{ children }</li>
 };
 
-module.exports = { List, ListEntry }
+export { List, ListEntry };

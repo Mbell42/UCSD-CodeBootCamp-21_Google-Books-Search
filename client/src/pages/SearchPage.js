@@ -53,6 +53,7 @@ class SearchPage extends Component {
           .then((res) => {
             console.log(res);
             this.setState({
+                
                 books: res.data.items.map((e, i) => ({
                     title: e.volumeInfo.title,
                     authors: e.volumeInfo.authors,
@@ -61,6 +62,7 @@ class SearchPage extends Component {
                     link: e.volumeInfo.previewLink,
                     key: e.id,
               })),
+            
             });
           })
           .catch((err) => console.log(err));

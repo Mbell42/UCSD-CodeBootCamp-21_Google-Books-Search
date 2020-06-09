@@ -6,8 +6,8 @@ import Container from "./components/Grid/Container";
 import Col from "./components/Grid/Col"
 import NavBar from "./components/Navbar";
 
-import SearchPage from "./pages/SearchPage";
-// import SavedPage from "./pages/SavedPage";
+import SearchPage from "./pages/SearchPage.js";
+import SavedPage from "./pages/SavedPage.js";
 import "./App.css";
 
 // App Page Composition
@@ -22,7 +22,7 @@ class App extends Component {
             <Switch>
               <Route exact path = "/" component= {SearchPage} />
               <Route path = "/search" component= {SearchPage} />
-              {/* <Route path = "/saved" component= {SavedPage} /> */}
+              <Route path = "/saved" component= {SavedPage} />
             </Switch>
           </Col>
         </Router>
